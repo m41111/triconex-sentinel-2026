@@ -1,0 +1,29 @@
+sentinel:
+  interface: eth0
+  tristation_port: 1502
+  log_level: INFO
+  log_file: /var/log/sentinel/sentinel.log
+
+alerts:
+  syslog_server: 10.0.100.50
+  syslog_port: 514
+  email_enabled: false
+  email_to: soc-team@internal.local
+  
+thresholds:
+  max_eng_sessions: 2
+  session_timeout_sec: 300
+  anomaly_score_trigger: 7.5
+  
+known_engineering_stations:
+  - 10.10.20.101
+  - 10.10.20.102
+  - 10.10.20.105
+
+monitored_controllers:
+  - ip: 10.10.30.10
+    model: "Tricon CX"
+    tag: "SIS-UNIT-01"
+  - ip: 10.10.30.11
+    model: "Tricon CX"
+    tag: "SIS-UNIT-02"
